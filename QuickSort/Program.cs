@@ -27,7 +27,7 @@ namespace QuickSort
                 Console.Write(mas[i] + "\t");
             }
         }
-        static void quickSort(int[] mas, int firstArg, int lastArg)
+        static void QuickSort(int[] mas, int firstArg, int lastArg)
         {
             int stepForward = firstArg;
             int stepBack = lastArg;
