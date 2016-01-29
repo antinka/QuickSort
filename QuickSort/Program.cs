@@ -20,7 +20,7 @@ namespace QuickSort
                 Console.Write(mas[i] + "\t");
             }
             Console.Write("\nОтсортированный массив \n");
-            quickSort(mas, 0, size - 1);
+            QuickSort(mas, 0, size - 1);
 
             for (int i = 0; i < size; i++)
             {
