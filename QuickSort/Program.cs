@@ -20,37 +20,48 @@ namespace QuickSort
                 Console.Write(mas[i] + "\t");
             }
             Console.Write("\nОтсортированный массив \n");
-            quick_sort(mas, 0, size - 1);
+            quickSort(mas, 0, size - 1);
 
             for (int i = 0; i < size; i++)
             {
                 Console.Write(mas[i] + "\t");
             }
         }
-        static void quick_sort(int[] mas, int firstArg, int lastArg)
+        static void quickSort(int[] mas, int firstArg, int lastArg)
         {
-            int i = firstArg, j = lastArg;
+            int stepForward = firstArg;
+            int stepBack = lastArg;
             int indCentr = (firstArg + lastArg) / 2;
             int centerNum = mas[indCentr];
             int temp = 0;
             do
             {
-                while (mas[i] < centerNum) i++;
-                while (centerNum < mas[j]) j--;
-                if (i <= j)
+                while (mas[stepForward] < centerNum)
                 {
-                    temp = mas[i];
-                    mas[i] = mas[j];
-                    mas[j] = temp;
-                    i++;
-                    j--;
+                    stepForward++;
                 }
-            } while (i <= j);
+                while (centerNum < mas[stepBack])
+                {
+                    stepBack--;
+                }
+                if (stepForward <= stepBack)
+                {
+                    temp = mas[stepForward];
+                    mas[stepForward] = mas[stepBack];
+                    mas[stepBack] = temp;
+                    stepForward++;
+                    stepBack--;
+                }
+            } while (stepForward <= stepBack);
 
-            if (firstArg < j)
-                quick_sort(mas, firstArg, j);
-            if (i < lastArg)
-                quick_sort(mas, i, lastArg);
+            if (firstArg < stepBack)
+            { 
+                quickSort(mas, firstArg, stepBack);
+            }
+            if (stepForward < lastArg)
+            {
+                quickSort(mas, stepForward, lastArg);
+            }
         }
     }
 }
