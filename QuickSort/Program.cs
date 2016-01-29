@@ -56,11 +56,11 @@ namespace QuickSort
 
             if (firstArg < stepBack)
             { 
-                quickSort(mas, firstArg, stepBack);
+                QuickSort(mas, firstArg, stepBack);
             }
             if (stepForward < lastArg)
             {
-                quickSort(mas, stepForward, lastArg);
+                QuickSort(mas, stepForward, lastArg);
             }
         }
     }
